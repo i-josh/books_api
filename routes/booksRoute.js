@@ -1,11 +1,15 @@
 import express from 'express'
-import { getBooks,addBook,getBook,updateBook} from '../controllers/booksController.js'
+import { getBooks, addBook, getBook, updateBook } from '../controllers/booksController.js'
 
 const router = express.Router()
 
-router.get('/',getBooks)
+//get all books
+router.get('/', getBooks)
+//add a new book
 router.post('/', addBook)
-router.get('/:id',getBook)
-router.patch('/:id',updateBook)
+//get book by id
+router.get('/:id', getBook)
+//update book
+router.patch('/:id', updateBook)
 
 export default router

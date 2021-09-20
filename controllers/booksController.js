@@ -24,22 +24,16 @@ export async function getBooks(req, res) {
 }
 
 export async function addBook(req, res) {
-    try {
+    try {    
+
         const book = new Book(req.body)
-        const savedBook = await book.save();
+        const savedBook = await book.save()
 
         if (savedBook) {
             return res.status(200).json({
                 "status": "success",
                 "data": savedBook
             })
-        } else {
-            return res.status(400).json(
-                {
-                    "status": "error",
-                    "message": "Could not add book"
-                }
-            )
         }
     } catch (e) {
         res.status(400).json({
